@@ -1,10 +1,10 @@
 #################################
 # Author:  Dhaval Chavda
 #################################
-
-
-
 # This Script Is For Delivery Team !
+
+
+
 
 #open all basic dashboards needed for given stack name 
 
@@ -57,11 +57,6 @@ open -a "Google Chrome" "https://es-$stack.splunkcloud.com/en-US/account/login?l
 echo "--------- ADMIN CREDS --------------- \n"
 vault kv get cloud-sec/std/lve/stacks/$stack/admin | grep plaintext | awk {'print $2'} | pbcopy ; echo "Admin Password Copied"
 
-
-#open itsi sh creds
-echo "-------------  ITSI SH ------------- \n" 
-vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$(nslookup itsi-$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-") | egrep 'username|password' 
-open -a "Google Chrome" "https://itsi-$stack.splunkcloud.com/en-US/account/login?loginType=Splunk" 
 
 
 # open IDM1 and creds

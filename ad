@@ -1,1 +1,1 @@
-vault kv get cloud-sec/std/lve/stacks/$1/admin | egrep 'plaintext|version' | awk {'print $2'}
+PASSWORD=$(vault kv get cloud-sec/std/lve/stacks/$1/admin | grep plaintext | awk {'print $2'} ) ; echo "\nPassword: $PASSWORD" ; echo $PASSWORD  | pbcopy ; echo "\nPassword Copied!"

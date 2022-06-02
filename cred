@@ -1,0 +1,49 @@
+read -p "Stackname: " stack
+echo -e "
+1. c0m1 2. idm1 3. sh1 4. sh2 5.sh3 6.sh4
+"
+read -p "Select Node (1-7): " node
+LINK=$(nslookup $node.$stack.splunkcloud.com | awk '{print $1}'| grep ".-i-")
+
+case $node in
+        1)      CM=$(nslookup c0m.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome!  CM  \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$CM | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://c0m1.$stack.splunkcloud.com:8443/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+        2)      IDM1=$(nslookup idm1.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome!  IDM \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$IDM1 | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://idm1.$stack.splunkcloud.com/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+        3)      SH1=$(nslookup sh1.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome! SH1 \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$SH1 | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://sh1.$stack.splunkcloud.com/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+        4)      SH2=$(nslookup sh2.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome! SH2 \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$SH2 | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://sh2.$stack.splunkcloud.com/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+        5)      SH3=$(nslookup sh3.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome! SH3 \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$SH3 | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://sh3.$stack.splunkcloud.com/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+        6)      SH4=$(nslookup sh4.$stack.splunkcloud.com | awk '{print $1}' | grep ".-i-" )
+                echo -e "UI Already Opened in Chrome! SH4 \n" 
+                vault read cloud-sec-lve-ephemeral/creds/$stack-admin/$SH4 | egrep 'username|password|version' 
+                open -a "Google Chrome" "https://sh4.$stack.splunkcloud.com/en-US/account/login?loginType=Splunk"
+                exit
+                ;;
+esac
+
+#By Dhaval Chavda
+
+

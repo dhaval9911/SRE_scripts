@@ -1,0 +1,3 @@
+JENKINS=$(cloudctl stacks get $1  | grep jenkins | awk '{print $2}')
+open -a "Google Chrome" $JENKINS
+

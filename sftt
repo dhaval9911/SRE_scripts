@@ -1,0 +1,4 @@
+
+sft ssh $(nslookup $1.$2.splunkcloud.com | awk '{print $1}' | grep ".-i-" | awk -F\. '{print $1}')
+
+# By Dhaval Chavda

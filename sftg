@@ -1,0 +1,1 @@
+sft ssh $(nslookup $1.$2.splunkcloud.com | grep "Name:" | awk '{print $2}' | awk -F\. '{print $1}')

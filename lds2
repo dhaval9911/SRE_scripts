@@ -3,6 +3,9 @@
 #################################
 
 
+
+# This Script Is For Delivery Team !
+
 #open all basic dashboards needed for given stack name 
 
 read -p "Stackname: " stack

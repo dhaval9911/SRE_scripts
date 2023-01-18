@@ -43,10 +43,5 @@ JIRA (TO- ) : TO-123556
 
 ``` 
 
-```
-./approve.sh                                                                                
-Stackname: edu12398 
-Version: 4
 
-```
 

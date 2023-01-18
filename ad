@@ -1,1 +1,4 @@
 PASSWORD=$(vault kv get cloud-sec/std/lve/stacks/$1/admin | grep plaintext | awk {'print $2'} ) ; echo "\nPassword: $PASSWORD" ; echo $PASSWORD  | pbcopy ; echo "\nPassword Copied!"
+
+
+# get admin passwords for given stack as argument
